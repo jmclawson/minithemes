@@ -1,4 +1,4 @@
-#' Simple, minimal theme, with easy customizations
+#' Simple, minimal theme, with easy customization
 #'
 #' @param bg Background color
 #' @param text Not used
@@ -15,8 +15,14 @@
 #'    mutate(cyl = factor(cyl)) |>
 #'    ggplot(aes(mpg, cyl, fill = cyl)) +
 #'    geom_boxplot(key_glyph = "dubois") +
-#'    theme_mini(conditional = TRUE) +
+#'    theme_mini() +
 #'    scale_fill_dubois()
+#'
+#'  mtcars |>
+#'    mutate(cyl = factor(cyl)) |>
+#'    ggplot(aes(cyl, mpg, fill = cyl)) +
+#'    geom_point(shape = 21, size = 4) +
+#'    theme_mini(bg = "#ddddff")
 theme_mini <- function(bg = "white",
                        text = "black", # not yet supported
                        minor = FALSE,

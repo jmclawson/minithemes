@@ -6,10 +6,19 @@
 \alias{minithemes-package}
 \title{minithemes: What the Package Does (One Line, Title Case)}
 \description{
-What the package does (one paragraph).
+The minithemes package provides some simple themes, and palettes for ggplot2, including conditional themes that optimize grid lines and palettes and key glyph markers from W.E.B. Dubois's visualizations.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/jmclawson/minithemes}
+  \item \url{https://jmclawson.github.io/minithemes/}
+  \item Report bugs at \url{https://github.com/jmclawson/minithemes/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: James Clawson \email{clawson@gmail.com} (\href{https://orcid.org/0009-0008-6756-0607}{ORCID})
 
 }
 \keyword{internal}

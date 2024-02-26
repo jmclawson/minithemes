@@ -2,7 +2,7 @@
 % Please edit documentation in R/theme_mini.R
 \name{theme_mini}
 \alias{theme_mini}
-\title{Simple, minimal theme, with easy customizations}
+\title{Simple, minimal theme, with easy customization}
 \usage{
 theme_mini(bg = "white", text = "black", minor = FALSE, conditional = TRUE)
 }
@@ -19,7 +19,7 @@ theme_mini(bg = "white", text = "black", minor = FALSE, conditional = TRUE)
 ggplot object
 }
 \description{
-Simple, minimal theme, with easy customizations
+Simple, minimal theme, with easy customization
 }
 \examples{
  library(dplyr)
@@ -28,6 +28,12 @@ Simple, minimal theme, with easy customizations
    mutate(cyl = factor(cyl)) |>
    ggplot(aes(mpg, cyl, fill = cyl)) +
    geom_boxplot(key_glyph = "dubois") +
-   theme_mini(conditional = TRUE) +
+   theme_mini() +
    scale_fill_dubois()
+
+ mtcars |>
+   mutate(cyl = factor(cyl)) |>
+   ggplot(aes(cyl, mpg, fill = cyl)) +
+   geom_point(shape = 21, size = 4) +
+   theme_mini(bg = "#ddddff")
 }
