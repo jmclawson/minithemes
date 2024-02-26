@@ -15,43 +15,40 @@ knitr::opts_chunk$set(
 
 # minithemes
 
-<!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![CRAN status](https://www.r-pkg.org/badges/version/minithemes)](https://CRAN.R-project.org/package=minithemes)
-<!-- badges: end -->
-
-The goal of minithemes is to ...
+The minithemes package provides some simple themes, and palettes for ggplot2, including conditional themes that optimize grid lines and palettes and key glyph markers from W.E.B. Dubois's visualizations.
 
 ## Installation
 
 You can install the development version of minithemes from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("jmclawson/minithemes")
+# install.packages("remotes")
+remotes::install_github("jmclawson/minithemes")
 ```
 
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, message=FALSE, warning=FALSE}
 library(minithemes)
-## basic example code
+library(dplyr)
+library(ggplot2)
+
+# Showing automated grid lines, Dubois key glyphs, and Dubois palette.
+mtcars |>
+  mutate(cyl = factor(cyl)) |>
+  ggplot(aes(mpg, cyl, fill = cyl)) +
+  geom_boxplot(key_glyph = "dubois") +
+  theme_mini() +
+  scale_fill_dubois()
+
+# Conditional grid lines toggle for both orientations.
+mtcars |>
+  mutate(cyl = factor(cyl)) |>
+  ggplot(aes(cyl, mpg, fill = cyl)) +
+  geom_boxplot(key_glyph = "dubois") +
+  theme_mini() +
+  scale_fill_dubois()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
