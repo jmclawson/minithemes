@@ -1,3 +1,5 @@
+#' crafts conditional grid
+#' @export
 ggplot_add.conditional_grid <- function(object, plot, object_name) {
   # if (!inherits(plot$facet, "FacetNull")) {
   #   object <- object + theme(panel.border = element_rect(colour = "grey50", fill = NA))
